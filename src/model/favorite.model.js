@@ -10,6 +10,7 @@ const favoriteSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'products'
     },
+
   
     isDelete:{
         type:Boolean,

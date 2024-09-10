@@ -1,6 +1,6 @@
 const express = require('express');
 const ReviewRoutes = express.Router();
-const { adminVerifyToken }  = require('../../Helpers/userVerifyToken');
+const { adminVerifyToken }  = require('../../helpers/userVerifyToken');
 
 const {  getAllReview ,  deleteReview } = require('../../controller/admin/review.controller');
 

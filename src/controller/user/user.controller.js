@@ -35,7 +35,7 @@ exports.loginUser = async (req, res) => {
       email: req.body.email,
       isDelete: false,
     });
-    console.log(user);
+    // console.log(user);
     if (!user) {
       return res.status(400).json({ message: `Email Not Found...` });
     }
@@ -43,8 +43,8 @@ exports.loginUser = async (req, res) => {
     if (!checkPassword) {
       return res.status(401).json({ message: `Password Not Match...` });
     }
-    let token = jwt.sign({ userId: user._id }, "User");
-    console.log(token);
+    let token = jwt.sign({ userId: user._id }, process.env.USERKEY);
+    // console.log(token);
     res.status(200).json({ token, message: `User Login SuccesFully..` });
   } catch (error) {
     console.log(error);
@@ -57,15 +57,15 @@ exports.loginUser = async (req, res) => {
 // GET ALL USER
 exports.getAllUser = async (req, res) => {
   try {
-    let users = await userService.getAllUsers({ isDelete: false });
+    let users = await userService.getAllUsers({ isDelete : false  });
     console.log(users);
     if (!users) {
       return res.status(404).json({ message: `Users Data Not Found..!` });
-    }
+    } 
     res.status(200).json(users);
   } catch (error) {
     console.log(error);
-    res
+    res 
       .status(500)
       .json({ message: `Internal Server Error...${console.error()}` });
   }
@@ -142,11 +142,13 @@ exports.updatePassword = async (req, res) => {
         message: `Old Password And New Password Are Same...`,
       });
     }
+    
     if (req.body.newPassword !== req.body.confirmPassword) {
       return res.json({
         message: `New Password And Confirm Password is not Same...`,
       });
     }
+    
     let hashPassword = await bcrypt.hash(req.body.newPassword, 10);
     user = await userService.updateUser(req.user._id, {
       password: hashPassword,

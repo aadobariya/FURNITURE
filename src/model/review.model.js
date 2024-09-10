@@ -10,9 +10,11 @@ const ReviewSchema = mongoose.Schema({
         ref: 'products'
     } ,
     rating:{
-        type:Number
+        type:Number,
+        min:1,max:5,
+        require:true
     },
-    comment:{
+    description:{
         type:String
     },
     isDelete: {

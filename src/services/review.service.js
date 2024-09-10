@@ -15,11 +15,14 @@ module.exports = class ReviewServieces {
     // GET ALL REVIEW
     async getAllReview(query) {
         try {
-            let product = query.productId && query.productId !== undefined ? [
+            let product = query.productId
+            //  && query.productId !== undefined ?
+            [
                 {
                     $match: { product: query.productId }
                 }
-            ] : [];
+            ] 
+            // : [];
             let find = [
                 { $match: { isDelete: false } },
                 ...product,
@@ -29,7 +32,7 @@ module.exports = class ReviewServieces {
             let result = await Review.aggregate(find);
             return result;
         } catch (error) {
-            console.log(error);
+            console.log(error); 
             return error.message;
         }
     };

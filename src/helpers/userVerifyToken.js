@@ -1,9 +1,9 @@
-const jwt = require('jsonwebtoken');
+    const jwt = require('jsonwebtoken');
 const User = require('../model/user.model');
 require('dotenv').config();
 
 // USER VERIFY TOKEN
-exports.userVerifyToken = async(req, res, next) => {
+exports. userVerifyToken = async(req, res, next) => {
     try {
        const authorization = req.headers['authorization'];
        if(authorization === undefined){
@@ -15,6 +15,7 @@ exports.userVerifyToken = async(req, res, next) => {
            return res.status(401).json({ message: `Unauthorize ${console.error()}`})
        }else{
             let {userId} = jwt.verify(token, process.env.USERKEY);
+            
             // console.log(userId);
             let user = await User.findById(userId);
             // console.log(user);

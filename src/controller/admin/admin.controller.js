@@ -37,7 +37,7 @@ exports.loginAdmin = async(req, res) => {
         if (!checkPassword) {
             return res.status(401).json({message: `Password is Not Match...`});
         }
-        let token = jwt.sign({ adminId: admin._id}, 'Admin');
+        let token = jwt.sign({ adminId: admin._id}, process.env.ADMINKEY);
         console.log(token);
         res.status(200).json({ token, message: `Admin Login SuccesFully...`});
     } catch (error) {

@@ -1,6 +1,6 @@
 const express = require('express');
 const userRoutes = express.Router();
-const { adminVerifyToken } = require('../../Helpers/userVerifyToken');
+const { adminVerifyToken } = require('../../helpers/userVerifyToken');
 const {
     registerAdmin,
     loginAdmin,

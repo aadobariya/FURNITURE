@@ -10,6 +10,9 @@ exports.addReview = async (req, res) => {
             product:req.query.productId,
             isDelete: false
         });
+        // console.log(review);
+        // console.log(user);
+        
         if(review) {
             return res.status(400).json({ Message: 'Review is alredy exist' });
         }
@@ -24,6 +27,7 @@ exports.addReview = async (req, res) => {
 // GET ALL REVIEW
 exports.getAllReview = async(req , res) => {
     try {
+        
         let review = await reviewService.getAllReview(req.query);
         res.status(200).json(review);
     } catch (error) {
