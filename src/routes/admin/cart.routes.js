@@ -3,7 +3,7 @@ const cartRoutes = express.Router();
 
 const {
     getAllCart
-} = require('../../Controller/Admin/cart.controller');
+} = require('../../controller/admin/cart.controller');
 
 // GET ALL CART
 cartRoutes.get('/get-All-Carts', getAllCart);

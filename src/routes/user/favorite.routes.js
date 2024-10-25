@@ -2,7 +2,7 @@ const express = require('express');
 const FavoriteRoutes = express.Router();
 const {userVerifyToken} = require('../../helpers/userVerifyToken');
 
-const { addNewFavorite,  deleteFavorite, getAllFavorite } = require('../../Controller/User/favorite.controller');
+const { addNewFavorite,  deleteFavorite, getAllFavorite } = require('../../controller/user/favorite.controller');
  
 // ADD NEW FAVORITE
 FavoriteRoutes.post('/add-New-Favorite' , userVerifyToken ,  addNewFavorite);

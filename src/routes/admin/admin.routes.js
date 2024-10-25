@@ -9,7 +9,7 @@ const {
     updateAdmin,
     deleteAdmin,
     updatePassword
-} = require('../../Controller/Admin/admin.controller');
+} = require('../../controller/admin/admin.controller');
 
 // REGISTER ADMIN
 userRoutes.post('/register-Admin',registerAdmin);

@@ -1,6 +1,6 @@
 const express = require('express');
 const cartRotes = express.Router();
-const { userVerifyToken } = require('../../Helpers/userVerifyToken');
+const { userVerifyToken } = require('../../helpers/userVerifyToken');
 
 const {
     addToCart,
@@ -8,7 +8,7 @@ const {
     getCart,
     updateCart,
     deleteCart
-} = require('../../Controller/User/cart.controller');
+} = require('../../controller/user/cart.controller');
 
 // ADD CART
 cartRotes.post('/add-Cart', userVerifyToken, addToCart);

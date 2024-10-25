@@ -8,7 +8,7 @@ const {
     getProduct,
     updateProduct,
     deleteProduct
-} = require('../../Controller/Admin/product.controller');
+} = require('../../controller/admin/product.controller');
 
 // ADD PRODUCT
 productRoutes.post('/add-Product', adminVerifyToken, addNewProduct);

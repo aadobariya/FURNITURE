@@ -1,6 +1,6 @@
 const express = require('express');
 const orderRoute = express.Router();
-const {userVerifyToken} = require('../../Helpers/userVerifyToken');
+const {userVerifyToken} = require('../../helpers/userVerifyToken');
 
 
 const {
@@ -8,7 +8,7 @@ const {
     getAllOrders,
     getOrder,
     deleteOrder
-} = require('../../Controller/User/order.controller');
+} = require('../../controller/user/order.controller');
 
 // ADD NEW ORDER
 orderRoute.post('/add-New-Order', userVerifyToken, addNewOrder);

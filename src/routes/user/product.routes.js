@@ -1,15 +1,16 @@
 const express = require('express');
 const productRoute = express.Router();
+const { userVerifyToken } = require('../../helpers/userVerifyToken');
 
-const {
+const{ 
     getAllProducts,
     getProduct
-} = require('../../Controller/User/product.controller');
+}=require('../../controller/user/product.controller');
 
 // GET ALL PRODUCT
-productRoute.get('/get-All-Product', getAllProducts);
+productRoute.get('/get-All-Product', userVerifyToken, getAllProducts);
 
 // GET SPECIFIC PRODUCT
-productRoute.get('/get-Product', getProduct);
+productRoute.get('/get-Product', userVerifyToken, getProduct);
 
 module.exports = productRoute;

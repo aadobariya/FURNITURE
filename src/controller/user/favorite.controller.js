@@ -19,8 +19,8 @@ exports.addNewFavorite = async (req, res) => {
     res.status(500).json({ Message: "Internal server Error" });
   }
 };
-
-// GET ALL FAVORITE
+   
+// GET ALL FAVORITE 
 exports.getAllFavorite = async (req, res) => {
   try {
     let favorite = await favoriteService.getAllFavorite(req.query);
